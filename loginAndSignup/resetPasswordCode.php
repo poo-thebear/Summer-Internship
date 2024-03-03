@@ -30,15 +30,18 @@ if (isset($_POST['password_update'])) {
                         
                         //New Password successfully Updated
                         header("location:resetPassword.php?q=password_changed");
+                        exit(0);
                     } 
                     else {
                         //not update password. Something went wrong
                         header("location:resetPassword.php?token=$token&email=$email");
+                        exit(0);
                     }
                 } 
                 else {
                     //password nd confirm password doesn't match
                     header("location:resetPassword.php?token=$token&email=$email?q=pwd_not_matched");
+                    exit(0);
                 }
             } 
             else {
